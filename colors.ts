@@ -3,13 +3,6 @@
  * No corresponding npm package exits - no relation to https://www.npmjs.com/package/color-js
  * The origin seems to be https://github.com/PitPik/colorPicker/blob/master/colors.js
  * which has an MIT licence: https://github.com/PitPik/colorPicker/blob/master/LICENSE.md
- *
- * The wavesurfer is the only component relying on this file.
- * DAR would not recommend using this in any new place because it:
- * - is not managed via npm
- * - inactivity of the author for more than 4 years
- * - frequent use of any type
- * - likely availability of better options
  */
 const _Math = window.Math
 const _round = _Math.round
@@ -47,7 +40,7 @@ interface Colors {
 let _instance: any = {} as any
 let _colors: Colors | any = {} as Colors
 
-const Colors: X = function (this: badany, options: X) {
+const Colors: any = function (this: badany, options: any) {
     this.colors = {RND: {} as X}
     this.options = {
         color: 'rgba(204, 82, 37, 0.8)', // init value(s)...
@@ -90,7 +83,7 @@ Colors.prototype.toString = function (colorMode: string, forceAlpha: boolean) {
     return ColorConverter.color2text((colorMode || 'rgb').toLowerCase(), this.colors, forceAlpha)
 }
 
-const initInstance = function (THIS: X, options: X) {
+const initInstance = function (THIS: any, options: any) {
     const _options = THIS.options
 
     focusInstance(THIS)
@@ -103,7 +96,7 @@ const initInstance = function (THIS: X, options: X) {
     _options.customBG = (typeof customBG === 'string') ? ColorConverter.txt2color(customBG).rgb : customBG
     _colors = setColor(THIS.colors, _options.color, undefined, true) // THIS.colors = _colors =
 }
-const focusInstance = function (THIS: X) {
+const focusInstance = function (THIS: any) {
     if (_instance !== THIS) {
         _instance = THIS
         _colors = THIS.colors
@@ -114,7 +107,7 @@ const focusInstance = function (THIS: X) {
 // ---------- Color calculation related stuff  ---------- //
 // -------------------------------------------------------//
 
-function setColor(colors: X, color: X, type?: keyof Colors, save?: boolean, alpha?: number) { // color only full range
+function setColor(colors: any, color: any, type?: keyof Colors, save?: boolean, alpha?: number) { // color only full range
     type = type || 'rgb'
     if (typeof color === 'string') {
         color = ColorConverter.txt2color(color) // new object
@@ -165,13 +158,13 @@ function convertColors(type: string, colorObj?: any) {
     const options = _instance.options
     const ranges: any = _valueRanges
     const RND = colors.RND// type = colorType, // || _mode.type,
-    let modes: X
+    let modes: any 
     let mode = ''
     let from = '' // value = '',
     const exceptions: any = {hsl: 'hsv', rgb: type}
     let RGB = RND.rgb
-    let SAVE: X
-    let SMART: X
+    let SAVE: any
+    let SMART: any
     if (type !== 'alpha') {
         for (const typ in ranges) {
             if (ranges.hasOwnProperty(typ)) {
